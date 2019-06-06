@@ -1,5 +1,6 @@
 const fs = require('fs');
 
+//{u:1,v:2}
 const fetch = (url, arg)=>{
     return new Promise((resolve,reject)=>{
         fs.readFile(url, (err,data)=>{
@@ -7,14 +8,25 @@ const fetch = (url, arg)=>{
                 reject({code:0, msg: '读取fsStore失败'})
             }
             let result = JSON.parse(data.toString())
-            if(typeof arg != 'undefined'){
+            let key = Object.keys(arg);
+            result = result.filter(item=>{
+                let num = 0;
+                for(let i=0;i<key.length;i++){
+                    if(item[key[i]] == arg[key[i]]){
+                        num++;
+                    }
+                }
+                return num == key.length;
+
+            })
+            /*if(typeof arg != 'undefined'){
                 //{key:shopId,val:1}
                 console.log(arg)
                 result = result.filter(item=>{
                        return item[arg['key']] == arg['val']
                 })
 
-            }
+            }*/
             resolve({
                 code: 1,
                 data: result
@@ -27,7 +39,6 @@ const add = (url, obj) => {
     return new Promise((resolve, reject)=>{
         fetch(url).then(data=>{
             let result = data.data;
-            console.log(obj)
             obj['id'] = result.length+1;
             result.push(obj)
             fs.writeFile(url,JSON.stringify(result),(err)=>{

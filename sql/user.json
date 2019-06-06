@@ -1,6 +1,7 @@
 [{
   "id": 1,
   "username": "张三",
+  "password": 123456,
   "iphone": 123456789,
   "peopleUrl": "fsdsds.jpg",
   "msg": [{
