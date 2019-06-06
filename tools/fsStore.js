@@ -8,17 +8,18 @@ const fetch = (url, arg)=>{
                 reject({code:0, msg: '读取fsStore失败'})
             }
             let result = JSON.parse(data.toString())
-            let key = Object.keys(arg);
-            result = result.filter(item=>{
-                let num = 0;
-                for(let i=0;i<key.length;i++){
-                    if(item[key[i]] == arg[key[i]]){
-                        num++;
-                    }
-                }
-                return num == key.length;
+            if(typeof arg != 'undefined'){
+	            result = result.filter(item=>{
+	                let num = 0;
+	                for(let i=0;i<key.length;i++){
+	                    if(item[key[i]] == arg[key[i]]){
+	                        num++;
+	                    }
+	                }
+	                return num == key.length;
 
-            })
+	            })
+            }
             /*if(typeof arg != 'undefined'){
                 //{key:shopId,val:1}
                 console.log(arg)
