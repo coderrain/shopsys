@@ -11,6 +11,7 @@ const fetch = (url, arg)=>{
             if(typeof arg != 'undefined'){
 	            result = result.filter(item=>{
 	                let num = 0;
+                    let key = Object.keys(arg)
 	                for(let i=0;i<key.length;i++){
 	                    if(item[key[i]] == arg[key[i]]){
 	                        num++;

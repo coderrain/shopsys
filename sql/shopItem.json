@@ -1,37 +1,17 @@
-[{
-  "shopid": 1,
-  "hot": 1,
-  "chose": 1,
-  "id": 1,
-  "title": "小萝莉1",
-  "price": "100",
-  "url": "http://e.hiphotos.baidu.com/image/h%3D300/sign=a9e671b9a551f3dedcb2bf64a4eff0ec/4610b912c8fcc3cef70d70409845d688d53f20f7.jpg",
-  "urlList": ["xx","xx","xx","xx"],
-  "costed": 100,
-  "size": [20,30,40,50],
-  "color": ["red","green"],
-  "safe": ["fsfsd","fsdfdsfsd"],
-  "rest": [{
-    "factory": "北京xxx公司",
-    "markYear": "201899123"
-  }]
-},{
-  "shopid": 11,
-  "id": 1444,
-  "title": "小萝莉1",
-  "price": "100",
-  "url": "fdsfdfd.png"
-},{
-  "shopid": 2,
-  "id": 3,
-  "title": "美女1",
-  "price": "100",
-  "url": "fdsfdfd.png"
-},{
-  "shopid": 2,
-  "id": 4,
-  "title": "美女2",
-  "price": "200",
-  "chose": 1,
-  "url": "fdsfdfd.png"
-}]
+[
+  {
+    "id":1,
+    "title":"质量保障"
+  },{
+    "id":1,
+    "title":"正品保证"
+  },{
+    "id":1,
+    "title":"多重鉴定"
+  },{
+    "id":1,
+    "title":"售后保障"
+  }
+
+
+]

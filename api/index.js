@@ -4,7 +4,8 @@ const fs = require('fs');
 const fsStore = require('../tools/fsStore')
 
 router.get('/shopMark', (req,res,next)=>{
-    fsStore.fetch('./sql/shop.json').then(data=>{
+    let query = req.query
+    fsStore.fetch('./sql/shop.json',query).then(data=>{
         res.json(data)
     })
 })
