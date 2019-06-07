@@ -38,11 +38,21 @@
 - 返回参数
 	- 用户信息
 
-## 获取商品分类
+## 获取商品分类（更新）
 - url: /api/shopMark
 - type: GET方式	
 - 参数
-	- 无
+	- page 页数（可选）
+	- pageSize 条数（可选）
+- 返回参数
+	- 信息
+
+## 获取商品列表（更新）
+- url: /api/shopListPage
+- type: GET方式	
+- 参数
+	- page 页数（可选）
+	- pageSize 条数（可选）
 - 返回参数
 	- 信息
 
