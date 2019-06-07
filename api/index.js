@@ -26,7 +26,8 @@ router.get('/shopList', (req,res,next)=>{
 
 
 router.get('/ad', (req,res,next)=>{
-    fsStore.fetch('./sql/ad.json').then(data=>{
+    let query = req.query;
+    fsStore.fetch('./sql/ad.json',query).then(data=>{
         res.json(data)
     })
 })
