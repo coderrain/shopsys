@@ -1,9 +1,4 @@
-{
-  "bigBanner": {
-    "imgUrl": "xxx.jpg",
-    "url": "fdsfsdfsdfds"
-  },
-  "bannerList": [{
+[{
     "imgUrl": "xxx.jpg",
     "url": "fdsfsdfsdfds"
   },{
@@ -15,5 +10,4 @@
   },{
     "imgUrl": "xxx.jpg",
     "url": "fdsfsdfsdfds"
-  }]
-}
+}]
