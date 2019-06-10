@@ -20,8 +20,16 @@ router.post('/login', (req,res,next)=>{
     }
     delete body.code;
     fsStore.fetch("./sql/user.json", body).then(result=>{
-        req.session.username = result.data[0].username
-        res.json(result)
+        if(result.data.length<1){
+            return res.json({
+                code:0,
+                msg:'不存在'
+            })
+        }else{
+            req.session.username = result.data[0].username
+            res.json(result)
+        }
+        
     })
 })
 
