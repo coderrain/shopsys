@@ -85,3 +85,65 @@
 	- 无
 - 返回参数
 	- 信息
+
+
+
+## 后台管理系统接口
+
+- 登录接口
+	- url: /api/user/login
+	- type: POST方式	
+	- 参数
+		- username 用户名
+		- passowrd 密码
+		- code 验证码
+	- 返回参数
+		- 用户信息
+
+- 用户列表接口
+	- url: /api/user
+	- type: GET方式	
+	- 参数
+		- page 用户名
+		- pageSize 密码
+	- 返回参数
+		- 用户列表
+
+- 修改用户接口
+	- url: /api/update
+	- type: POST方式	
+	- 参数
+		- id 用户id
+		- username
+		- password
+		- imgUrl
+
+	- 返回参数
+		- 用户信息
+
+- 修改删除接口
+	- url: /api/del
+	- type: GET方式	
+	- 参数
+		- id 用户id
+	- 返回参数
+		- 用户信息
+
+- 用户添加接口
+	- url: /api/add
+	- type: POST方式	
+	- 参数
+		- username
+		- password
+	- 返回参数
+		- 用户信息
+
+- 用户修改头像接口
+	- url: /upload/profile
+	- type: POST方式	
+	- 参数
+		- avatar 上传表单的值
+		- id
+	- 返回参数
+		- 用户信息
+		

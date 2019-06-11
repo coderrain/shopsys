@@ -41,7 +41,7 @@ const add = (url, obj) => {
     return new Promise((resolve, reject)=>{
         fetch(url).then(data=>{
             let result = data.data;
-            obj['id'] = result.length+1;
+            obj['id'] = result[result.length-1].id+1;
             result.push(obj)
             fs.writeFile(url,JSON.stringify(result),(err)=>{
                 if(err){

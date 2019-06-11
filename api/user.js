@@ -3,11 +3,6 @@ let router = express.Router();
 const fsStore = require('../tools/fsStore')
 
 
-router.get('/', (req,res,next)=>{
-    fsStore.fetch("./sql/user.json").then(data=>{
-        res.json(data)
-    })
-})
 
 // /login?username=张三
 router.post('/login', (req,res,next)=>{
@@ -61,10 +56,54 @@ router.post('/reg', (req,res,next)=>{
     })
 })
 
+/*router.use((req,res,next)=>{
+    if(req.session.username){
+        next()
+    }else{
+        res.json({code:1,msg:'请登录后操作'})
+    }
+})*/
+
+router.get('/', (req,res,next)=>{
+    let { page, pageSize } = req.query;
+    console.log(page, pageSize) 
+    fsStore.fetch("./sql/user.json").then(data=>{
+        let result = data.data;
+        result = result.slice((page-1)*pageSize || 0, page*pageSize || 5)
+        res.json({
+            code:1,
+            data:result,
+            count: data.data.length
+        })
+    })
+})
+
+
 router.post('/resetname', (req,res,next)=>{
     fsStore.update("./sql/user.json", {username: req.session.username}, req.body).then(result=>{
         let {data} =result;
         res.json(data[data.length-1])
+    })
+})
+
+router.post('/update', (req,res,next)=>{
+    let body = req.body;
+    fsStore.update("./sql/user.json", {key:'id', val:body.id}, req.body).then(result=>{
+        let {data} =result;
+        data = data.filter(item=>item.id==body.id)
+        res.json({code:1,data:data[0]})
+    })
+})
+
+router.get('/del', (req,res,next)=>{
+    fsStore.del("./sql/user.json", {key:'id', val:req.query.id}).then(result=>{
+        res.json({code:1})
+    })
+})
+
+router.get('/add', (req,res,next)=>{
+    fsStore.add("./sql/user.json", req.query).then(result=>{
+        res.json({code:1})
     })
 })
 
